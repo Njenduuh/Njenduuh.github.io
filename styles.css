@@ -1,140 +1,171 @@
-/* Basic Reset */
-* {
+/* Global Styles */
+body {
+  background-color: black;
+  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-}
-
-/* Body and overall page styling */
-body {
-  font-family: 'Arial', sans-serif;
-  background-color: #000;
   color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
-}
-
-/* Profile Card */
-.profile-card {
-  background: rgba(255, 255, 255, 0.1);
-  width: 300px;
-  max-width: 350px;
-  border-radius: 15px;
-  overflow: hidden;
   text-align: center;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease-in-out;
-  padding: 20px;
-  transform: scale(1);
 }
 
-.profile-card.loaded {
-  opacity: 1;
-  transform: scale(1.05);
+.profile-card {
+  width: 80%;
+  margin: 0 auto;
+  background-color: #222;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
-/* Avatar image (Profile Picture) */
-.avatar {
-  width: 150px;
-  height: 150px;
-  background-image: url('profile-pic.jpg');
-  background-size: cover;
-  background-position: center;
+/* Profile Header */
+.profile-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.profile-pic-container {
   border-radius: 50%;
-  margin: 0 auto 15px;
+  overflow: hidden;
+  width: 120px;
+  height: 120px;
+  margin-right: 20px;
+}
+
+.profile-pic {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   transition: transform 0.3s ease-in-out;
 }
 
-/* Name and Job Title */
-.info .name {
-  font-size: 1.8em;
-  font-weight: bold;
-  margin-bottom: 5px;
+.profile-pic:hover {
+  transform: scale(1.1);
 }
 
-.info .job-title {
-  font-size: 1.1em;
+.info {
+  color: #fff;
+}
+
+.name {
+  font-size: 2rem;
+  margin: 0;
+  color: #ff66ff;
+  transition: color 0.3s ease-in-out;
+}
+
+.name:hover {
+  color: #00eaff;
+}
+
+.job-title {
+  font-size: 1.2rem;
+  margin: 5px 0;
+  color: #ff6666;
+}
+
+/* About Section */
+.about {
+  margin-top: 20px;
+}
+
+.about h3 {
+  color: #ff66ff;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.about p {
+  font-size: 1rem;
   color: #ccc;
 }
 
-/* About and Bio Sections */
-.about, .bio {
-  margin: 15px 0;
-  padding: 10px;
-  border: 2px solid #1bffee; /* Adding borders */
-  border-radius: 10px; /* Rounded corners */
-  background-color: rgba(255, 255, 255, 0.2); /* Light background */
+/* Bio Section */
+.bio {
+  margin-top: 20px;
 }
 
-.about h3, .bio h3 {
-  font-size: 1.4em;
+.bio h3 {
+  color: #ff66ff;
+  font-size: 1.5rem;
   margin-bottom: 10px;
-  color: #fff;
-  text-shadow: 0 0 5px #fff, 0 0 10px #1bffee, 0 0 20px #1bffee; /* Neon glow effect */
 }
 
-/* Social links */
+.bio p {
+  font-size: 1rem;
+  color: #ccc;
+}
+
+/* Social Links */
 .social-links {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 15px;
+  margin: 20px 0;
 }
 
 .social-link {
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  margin: 0 10px;
   transition: transform 0.3s ease-in-out;
 }
 
-.icon {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
 .social-link:hover {
-  transform: scale(1.2);
-}
-
-/* Hover Effects for Neon Text */
-.name, .job-title, .about h3, .bio h3 {
-  position: relative;
-  display: inline-block;
-  color: #fff;
-}
-
-.name:hover, .job-title:hover, .about h3:hover, .bio h3:hover {
-  animation: neon 1.5s ease-in-out infinite alternate;
-}
-
-@keyframes neon {
-  0% {
-    text-shadow: 0 0 5px #fff, 0 0 10px #1bffee, 0 0 20px #1bffee, 0 0 30px #1bffee;
-  }
-  100% {
-    text-shadow: 0 0 10px #fff, 0 0 20px #1bffee, 0 0 30px #1bffee, 0 0 40px #1bffee;
-  }
-}
-
-/* Social Links Fade-In Animation */
-.social-links.visible {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-}
-
-.social-links {
-  opacity: 0;
-  transform: translateY(20px);
-}
-
-/* Avatar Zoom on Hover */
-.avatar:hover {
   transform: scale(1.1);
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+  transition: filter 0.3s ease-in-out;
+}
+
+.social-link:hover .icon {
+  filter: drop-shadow(0px 0px 10px rgba(255, 0, 255, 0.7));
+}
+
+/* Skills Progress Bars */
+.skills {
+  margin-top: 30px;
+}
+
+.skill-bar {
+  margin: 10px 0;
+  text-align: left;
+}
+
+.progress {
+  width: 100%;
+  height: 10px;
+  background-color: #444;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: #ff66ff;
+  border-radius: 5px;
+}
+
+/* Quote Section */
+.quote {
+  margin-top: 30px;
+}
+
+.quote h3 {
+  color: #ff66ff;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.quote p {
+  color: #ccc;
+  font-style: italic;
+  font-size: 1.2rem;
+}
+
+/* Neon Effect */
+.name:hover,
+.job-title:hover,
+.social-link:hover .icon {
+  color: #fff;
+  text-shadow: 0 0 10px #ff66ff, 0 0 20px #ff66ff, 0 0 30px #ff66ff;
 }
